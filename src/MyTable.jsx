@@ -2,6 +2,7 @@ import React from 'react';
 import { withStyles, createStyles } from '@material-ui/core';
 import MUIDataTable from 'mui-datatables';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
 import './styles.css';
 
@@ -11,31 +12,31 @@ const styles = (theme) =>
       minWidth: 0,
       minHeight: 0,
     },
-    centerCell: {
-      minWidth: 0,
-      minHeight: 0,
-    },
   });
 
 class InnerMyTable extends React.Component {
   render() {
     const { classes } = this.props;
 
-    const columns = ['Col1', 'Col2'];
+    const columns = ['Name', 'Workspace', 'Campain Mode', 'Date Created'];
 
     const data = [
-      ['Item1-Col1', 'Item1-Col2'],
-      ['Item2-Col1', 'Item2-Col2'],
-      ['Item3-Col1', 'Item3-Col2'],
-      ['Item4-Col1', 'Item4-Col2'],
-      ['Item5-Col1', 'Item5-Col2'],
-      ['Item6-Col1', 'Item6-Col2'],
-      ['Item7-Col1', 'Item7-Col2'],
-      ['Item8-Col1', 'Item8-Col2'],
-      ['Item9-Col1', 'Item9-Col2'],
-      ['Item10-Col1', 'Item10-Col2'],
-      ['Item11-Col1', 'Item11-Col2'],
-      ['Item12-Col1', 'Item12-Col2'],
+      ['fy bbfb', 'Startup', 'Batch', '5th Jul 2021 at 09:54 AM'],
+      ['Creative upload', 'Startup', 'Batch', '21st Jun 2021 at 01:14 PM'],
+      [
+        'Batch before release 21.6.',
+        'Motionlab',
+        'Batch',
+        '21st Jun 2021 at 10:48 AM',
+      ],
+      [
+        'API before relase 21.6.',
+        'Motionlab',
+        'API',
+        '21st Jun 2021 at 10:47 AM',
+      ],
+      ['Warning info', 'Startup', 'Batch', '16th Jun 2021 at 01:24 PM'],
+      ['Fonts Testing II', 'Startup', 'Batch', '15th Jun 2021 at 01:53 PM'],
     ];
 
     const theme = createMuiTheme({
@@ -49,7 +50,9 @@ class InnerMyTable extends React.Component {
     });
 
     const tableOptions = {
-      responsive: 'scroll',
+      responsive: 'scrollFullHeight',
+      // responsive: 'scroll',
+      selectableRows: 'none',
       download: false,
       print: false,
       viewColumns: false,
@@ -57,15 +60,9 @@ class InnerMyTable extends React.Component {
 
     return (
       <div className={classes.root}>
-        <div className={classes.centerCell}>
-          <MuiThemeProvider theme={theme}>
-            <MUIDataTable
-              options={tableOptions}
-              columns={columns}
-              data={data}
-            />
-          </MuiThemeProvider>
-        </div>
+        <MuiThemeProvider theme={theme}>
+          <MUIDataTable options={tableOptions} columns={columns} data={data} />
+        </MuiThemeProvider>
       </div>
     );
   }
