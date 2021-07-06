@@ -12,9 +12,6 @@ const styles = (theme) =>
       minWidth: 0,
       minHeight: 0,
     },
-    title: {
-      textAlign: 'left',
-    },
   });
 
 class InnerMyTable extends React.Component {
