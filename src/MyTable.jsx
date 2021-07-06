@@ -12,6 +12,9 @@ const styles = (theme) =>
       minWidth: 0,
       minHeight: 0,
     },
+    title: {
+      textAlign: 'left',
+    },
   });
 
 class InnerMyTable extends React.Component {
@@ -63,6 +66,7 @@ class InnerMyTable extends React.Component {
         <div className={classes.root}>
           <MuiThemeProvider theme={theme}>
             <MUIDataTable
+              title="List of campaigns"
               options={tableOptions}
               columns={columns}
               data={data}
