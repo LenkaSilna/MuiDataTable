@@ -59,11 +59,17 @@ class InnerMyTable extends React.Component {
     };
 
     return (
-      <div className={classes.root}>
-        <MuiThemeProvider theme={theme}>
-          <MUIDataTable options={tableOptions} columns={columns} data={data} />
-        </MuiThemeProvider>
-      </div>
+      <>
+        <div className={classes.root}>
+          <MuiThemeProvider theme={theme}>
+            <MUIDataTable
+              options={tableOptions}
+              columns={columns}
+              data={data}
+            />
+          </MuiThemeProvider>
+        </div>
+      </>
     );
   }
 }
