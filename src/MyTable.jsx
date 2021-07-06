@@ -2,7 +2,7 @@ import React from 'react';
 import { withStyles, createStyles } from '@material-ui/core';
 import MUIDataTable from 'mui-datatables';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
+import CustomToolbar from './CustomToolbar';
 
 import './styles.css';
 
@@ -56,6 +56,9 @@ class InnerMyTable extends React.Component {
       download: false,
       print: false,
       viewColumns: false,
+      customToolbar: () => {
+        return <CustomToolbar />;
+      },
     };
 
     return (
